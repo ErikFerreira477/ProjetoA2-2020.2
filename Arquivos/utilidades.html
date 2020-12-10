@@ -1,0 +1,24 @@
+if (nome == '' || titulo == '' || candidato == '' || estado ==''){
+    alert('Preencha todos os campos!');
+    }
+    else{
+        var nome = document.fichaVoto.NOME.value;
+            var titulo = document.fichaVoto.titulo.value;
+            var candidato = document.fichaVoto.candidato.value;
+            var estado = document.fichaVoto.estado.value;
+            
+            var bi = 0;
+            
+            sessionStorage.setItem("nome", document.fichaVoto.NOME.value);
+            sessionStorage.setItem("titulo", document.fichaVoto.titulo.value);
+            sessionStorage.setItem("candidato", document.fichaVoto.candidato.value);
+            sessionStorage.setItem("estado", document.fichaVoto.estado.value); 
+
+            if(document.fichaVoto.candidato.value == 0){
+                bi++;
+            }
+
+            console.log(bi);
+            console.log(candidato);
+            return;
+    }

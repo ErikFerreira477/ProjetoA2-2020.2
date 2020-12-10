@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Urna online</title>
+    <script language='JavaScript'>
+    function SomenteNumero(e){
+        var tecla=(window.event)?event.keyCode:e.which;   
+        if((tecla>47 && tecla<58)) return true;
+        else{
+            if (tecla==8 || tecla==0) return true;
+        else  return false;
+        }
+    }   
+    </script>
+    <script type="text/javascript">
+        var trpwa = 0;
+        var trpca = 0;
+        var trpKA = 0;
+        var trpTE = 0;
+        var trpWis = 0;
+        var bdwa = 0;
+        var bdca = 0;
+        var bdKA = 0;
+        var bdTE = 0;
+        var bdWis = 0;
+
+        function soma(prss, std){
+           switch (std) {
+                case "washington":
+                if (prss == "donald"){
+                    trpwa++;
+                    console.log("trump recebeu um voto em washington");
+                    if(trpwa==4){
+                        alert("Trump ganhou em washington os 12 delegados")
+                        document.getElementById(washington).disabled=true;
+                    }
+                }
+                else{
+                    bdwa++;
+                    console.log("Biden recebeu um voto em washington");
+                    if(bdwa==4){
+                        alert("Biden ganhou em washington os 12 delegados")
+                    }
+                }
+                break;
+
+                case "Califórnia":
+                if (prss == "donald"){
+                    trpca++;
+                    console.log("trump recebeu um voto na Califórnia");
+                    if(trpca==4){
+                        alert("Trump ganhou na Califórnia os 55 delegados")
+                    }
+                }
+                else{
+                    bdca++;
+                    console.log("Biden recebeu um voto na Califórnia");
+                    if(bdca==4){
+                        alert("Biden ganhou na Califórnia os 55 delegados")
+                    }
+                }
+                break;
+
+                case "Kansas":
+                if (prss == "donald"){
+                    trpKA++;
+                    console.log("trump recebeu um voto no Kansas");
+                    if(trpKA==4){
+                        alert("Trump ganhou no Kansas os 6 delegados")
+                    }
+                }
+                else{
+                    bdKA++;
+                    console.log("Biden recebeu um voto em Kansas");
+                    if(bdKA==4){
+                        alert("Biden ganhou no Kansas os 6 delegados")
+                    }
+                }
+                break;
+                case "Texas":
+                if (prss == "donald"){
+                    trpTE++;
+                    console.log("trump recebeu um voto no Texas");
+                    if(trpTE==4){
+                        alert("Trump ganhou no Texas os 38 delegados")
+                    }
+                }
+                else{
+                    bdTE++;
+                    console.log("Biden recebeu um voto no Texas");
+                    if(bdTE==4){
+                        alert("Biden ganhou no Texas os 38 delegados")
+                    }
+                }
+                break;
+                case "Wisconsin":
+                if (prss == "donald"){
+                    trpWis++;
+                    console.log("trump recebeu um voto em Wisconsin");
+                    if(trpWis==4){
+                        alert("Trump ganhou em washington os 12 delegados")
+                    }
+                }
+                else{
+                    bdWis++;
+                    console.log("Biden recebeu um voto em Wisconsin");
+                    if(bdWis==4){
+                        alert("Biden ganhou em washington os 12 delegados")
+                    }
+                }
+                break;
+           }
+        }
+        function enviardados(){
+            var nome = document.fichaVoto.NOME.value;
+            var titulo = document.fichaVoto.titulo.value;
+            var prss = document.fichaVoto.candidato.value;
+            var std = document.fichaVoto.estado.value;
+
+            if(nome == '' || titulo == '' || prss == '' || std ==''){
+            alert('Preencha todos os campos!');
+            }
+            else{
+            soma(prss, std);
+            }
+        };    
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="red accent-4 z-depth-4">
+            <div class="nav-wrapper">
+                <a href="Index.html" class="brand-logo logo white-text">Eleições</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down white-text">
+                    <li><a href="Index.html">Página inicial</a></li>
+                    <li><a href="Integrantes.html" >Integrantes do Grupo</a></li>
+                    <li><a href="Sistema de votos.html">Vote AQUI</a></li>
+                    <li><a href="MapaVotos.html">Mapa EUA dos votos</a></li>
+                </ul>
+                <ul class="side-nav red center-align" id="mobile-demo">
+                    <li><a href="Index.html" class="white-text">Página inicial</a></li>
+                    <li><a href="Integrantes.html" class="white-text">Integrantes do Grupo</a></li>
+                    <li><a href="Sistema de votos.html" class="white-text">Vote AQUI</a></li>
+                    <li><a href="MapaVotos.html" class="white-text">Mapa EUA dos votos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container row">
+        <h4 class="center-align">
+            Deixe aqui seu voto
+        </h4>
+        <form class="col s12" name="fichaVoto">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" name="NOME" type="text" class="validate">
+                <label for="nome">Nome Completo</label>    
+            </div>
+            <div class="input-field col s6 right">
+                <i class="material-icons prefix">fingerprint</i>
+                <label for="titulo">Titulo Eleitoral</label>
+                <input id="titulo" type="text" class="validate" maxlength="8" name="titulo" onkeypress="return SomenteNumero(event)">
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">place</i>
+                <select name="estado" class="validate" id="stdd"> 
+                    <option value="" disabled selected>Escolha seu Estado</option>
+                    <option value="washington" id="washington">Washington</option>
+                    <option value="Califórnia" id="Califórnia">Califórnia</option>
+                    <option value="Kansas" id="Kansas">Kansas</option>
+                    <option value="Texas" id="Texas">Texas</option>
+                    <option value="Wisconsin" id="Wisconsin">Wisconsin</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">assignment_ind
+                </i>
+                <select name="candidato" class="validate" id="prs">
+                    <option value="" disabled selected>Escolha seu Candidato</option>
+                    <option data-icon="Arquivos\Trumpicon.png" class="circle" value="donald">Donald Trump</option>
+                    <option data-icon="Arquivos\Bidenicon.png" class="circle" value="joe">Joe Biden</option>
+                </select>
+            </div>
+            <div class="center-align">
+                <a onclick="enviardados()" class="waves-effect waves-light btn">Enviar</a>
+                <button class="btn waves-effect waves-light" type="reset" name="action">Limpar Campos</button>
+            </div>
+        </form>    
+        <div class="col s12 flow-text left">
+            <h5 class="center-align">O sistema</h5>
+            <p>Após o preenchimento da ficha de votação o voto é computado, e o estado que atingir 4 votos primeiro ganha os respectivos, delegados exibindo em alert.</p>
+        </div>
+    </main>
+    <footer class="page-footer red accent-4 z-depth-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Mapa do Site</h5>
+                    <p>
+                    <ul class="linktb">
+                        <li>
+                            <a href="Sistema de votos.html" class="white-text">Faça seu voto aqui</a>
+                        </li>
+                        <li>
+                            <a href="" class="white-text">Integrantes do Grupo</a>
+                        </li>
+                        <li>
+                            <a href="MapaVotos.html" class="white-text">Mapa EUA dos votos</a>
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Principais Fontes</h5>
+                    <ul class="linktb">
+                    <li><a class="white-text" href="https://materializecss.com/">www.materializecss.com</a></li>
+                    <li><a class="white-text" href="https://www.bbc.com/portuguese/internacional-54788165">www.bbc.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="footer-copyright">
+                <div class="container center-align flow-text white-text">
+                © 2020 Direitos Reservados
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+    <script type="text/javascript" src="materialize/js/materialize.js">
+    </script>
+    <script type="text/javascript">
+       $(".button-collapse").sideNav();
+    </script> 
+    <script>
+        $(document).ready(function() {
+        $('select').material_select();
+        });
+    </script>
+</body>
+</html>

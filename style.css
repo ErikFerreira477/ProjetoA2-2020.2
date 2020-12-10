@@ -1,0 +1,16 @@
+.logo{
+    margin-left: 20px;
+}
+
+.graph{
+    max-width: 100%;
+    height: auto;
+}
+
+.linktb a:link{
+    color: aliceblue;
+}
+
+.linktb a:hover{
+    text-decoration: underline;
+}
